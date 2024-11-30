@@ -4,7 +4,8 @@ import { Component } from '@angular/core';
   selector: 'app-calendar',
   imports: [],
   templateUrl: './calendar.component.html',
-  styleUrl: './calendar.component.css'
+  styleUrl: './calendar.component.css',
+  standalone: true
 })
 export class CalendarComponent {
 
