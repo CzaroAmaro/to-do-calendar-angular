@@ -1,1 +1,19 @@
-<p>calendar works!</p>
+<div class="calendar-container">
+  <div class="calendar">
+    <div class="calendar-header">
+      <div>{{ firstDayOfMonth.toFormat('MMMM yyyy') }}</div>
+    </div>
+
+    <div class="calendar-weeks-table">
+      <div class="calendar-weeks-table-cell" *ngFor="let day of weekDays">
+        {{ day }}
+      </div>
+    </div>
+
+    <div class="calendar-table">
+      <div class="calendar-table-cell" *ngFor="let day of daysOfMonth">
+        {{ day.day }}
+      </div>
+    </div>
+  </div>
+</div>
