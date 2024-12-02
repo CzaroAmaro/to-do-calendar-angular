@@ -1,1 +1,5 @@
-<p>task-list works!</p>
+<div class="task-list">
+  <div *ngFor="let task of tasks">
+    <p>{{ task.date | date:'shortDate' }}: {{ task.task }}</p>
+  </div>
+</div>

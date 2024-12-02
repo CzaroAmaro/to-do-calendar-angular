@@ -1,1 +1,13 @@
-<p>task-form works!</p>
+<div class="modal">
+  <div class="modal-content">
+    <h2>Add Task</h2>
+    <form (submit)="submitForm($event)">
+      <div>
+        <label>Add Task</label>
+        <input type="text" name="task" [(ngModel)]="task" />
+      </div>
+      <button type="submit">Save</button>
+      <button type="button" (click)="closeDialog()">Close</button>
+    </form>
+  </div>
+</div>

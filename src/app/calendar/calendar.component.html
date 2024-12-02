@@ -11,9 +11,12 @@
     </div>
 
     <div class="calendar-table">
-      <div class="calendar-table-cell" *ngFor="let day of daysOfMonth">
+      <div class="calendar-table-cell" (click)="openDialog(day)" *ngFor="let day of daysOfMonth">
         {{ day.day }}
       </div>
     </div>
   </div>
+  <app-task-list [tasks]="tasks"></app-task-list>
 </div>
+
+
