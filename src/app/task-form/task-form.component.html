@@ -4,9 +4,12 @@
     <form (submit)="submitForm($event)">
       <div>
         <label>Add Task</label>
-        <input type="text" name="task" [(ngModel)]="task" />
+        <input type="text" name="task" [(ngModel)]="task" #taskInput="ngModel" required />
+        <div *ngIf="taskInput.invalid && taskInput.touched">
+          <div *ngIf="taskInput.errors?.['required']" style="color: red">Task required!</div>
+        </div>
       </div>
-      <button type="submit">Save</button>
+      <button type="submit" [disabled]="taskInput.invalid">Save</button>
       <button type="button" (click)="closeDialog()">Close</button>
     </form>
   </div>

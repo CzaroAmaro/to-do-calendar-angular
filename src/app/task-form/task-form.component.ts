@@ -20,9 +20,9 @@ export class TaskFormComponent {
     @Inject(MAT_DIALOG_DATA) public data: { selectedDate: Date }
   ) {
     if (data && data.selectedDate) {
-      this.selectedDate = new Date(data.selectedDate);  // Przypisujemy data.selectedDate do selectedDate
+      this.selectedDate = new Date(data.selectedDate);
     } else {
-      this.selectedDate = new Date(); // Jeśli nie ma data.selectedDate, przypisujemy bieżącą datę
+      this.selectedDate = new Date();
     }
   }
 

@@ -23,6 +23,7 @@ export class CalendarComponent {
     this.generateDaysOfMonth();
   }
 
+  //Generowanie kalendarza
   generateDaysOfMonth() {
     let start = this.firstDayOfMonth.startOf('week');
     let end = this.firstDayOfMonth.endOf('month').endOf('week');
@@ -34,6 +35,7 @@ export class CalendarComponent {
     }
   }
 
+  //Otwieranie dialogu
   openDialog(day: DateTime): void {
     console.log('Opening dialog for day:', day.toString());
 
