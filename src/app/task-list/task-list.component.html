@@ -1,4 +1,6 @@
+
 <div class="task-list">
+  <h2>Lista zadań do zrobienia</h2>
   <div *ngFor="let task of tasks; let i = index">
     <p>{{ task.date | date:'shortDate' }}: {{ task.task }}</p>
     <button (click)="removeTask(i)">Usuń</button>
