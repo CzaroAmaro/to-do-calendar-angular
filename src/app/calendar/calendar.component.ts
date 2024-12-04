@@ -35,6 +35,11 @@ export class CalendarComponent {
       current = current.plus({ days: 1 });
     }
   }
+
+  isCurrentMonth(date: DateTime): boolean {
+    return date.hasSame(this.firstDayOfMonth, 'month');
+  }
+
   previousMonth(){
     this.firstDayOfMonth = this.firstDayOfMonth.minus({ months: 1 });
     this.generateDaysOfMonth();

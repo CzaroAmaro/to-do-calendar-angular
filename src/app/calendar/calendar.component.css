@@ -65,3 +65,6 @@
   background-color: #7c7c7c;
   cursor: pointer;
 }
+.calendar-table-cell.other-month {
+  background-color: #939393;
+}

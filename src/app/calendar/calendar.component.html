@@ -13,7 +13,7 @@
     </div>
 
     <div class="calendar-table">
-      <div class="calendar-table-cell" (click)="openDialog(day)" *ngFor="let day of daysOfMonth">
+      <div class="calendar-table-cell" (click)="openDialog(day)" *ngFor="let day of daysOfMonth" [ngClass]="{'other-month': !isCurrentMonth(day)}">
         {{ day.day }}
       </div>
     </div>
