@@ -25,6 +25,7 @@ export class CalendarComponent {
 
   //Generowanie kalendarza
   generateDaysOfMonth() {
+    this.daysOfMonth = [];
     let start = this.firstDayOfMonth.startOf('week');
     let end = this.firstDayOfMonth.endOf('month').endOf('week');
     let current = start;
@@ -33,6 +34,15 @@ export class CalendarComponent {
       this.daysOfMonth.push(current);
       current = current.plus({ days: 1 });
     }
+  }
+  previousMonth(){
+    this.firstDayOfMonth = this.firstDayOfMonth.minus({ months: 1 });
+    this.generateDaysOfMonth();
+  }
+
+  nextMonth(){
+    this.firstDayOfMonth = this.firstDayOfMonth.plus({ months: 1 });
+    this.generateDaysOfMonth();
   }
 
   //Otwieranie dialogu
