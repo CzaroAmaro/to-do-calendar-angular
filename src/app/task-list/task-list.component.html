@@ -1,6 +1,11 @@
 <div class="task-list-container">
   <h3>Zadania na {{ selectedDate?.toFormat('dd MMMM yyyy') }}</h3>
 
+  <div class="task-controls">
+    <button (click)="sortTasks(true)">Sort by First Letter (Asc)</button>
+    <button (click)="sortTasks(false)">Sort by First Letter (Desc)</button>
+  </div>
+
   <ul>
     <li *ngFor="let task of filteredTasks; let i = index">
       {{ task.task }}

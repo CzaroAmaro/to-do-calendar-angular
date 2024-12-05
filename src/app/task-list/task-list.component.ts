@@ -28,7 +28,7 @@ export class TaskListComponent {
   }
 
   // Otwarcie formularza do dodania zadania
-  openDialog(): void {
+  openDialog() {
     if (this.selectedDate) {
       const dialogRef = this.dialog.open(TaskFormComponent, {
         data: { selectedDate: this.selectedDate.toJSDate() }
@@ -45,5 +45,20 @@ export class TaskListComponent {
   // Usuwanie zadania
   removeTask(index: number) {
     this.tasks.splice(index, 1);
+  }
+
+  sortTasks(ascending: boolean) {
+    const compareFn = (a: { date: Date; task: string }, b: { date: Date; task: string }) => {
+      const valueA = a.task.charAt(0).toLowerCase();
+      const valueB = b.task.charAt(0).toLowerCase();
+      if (valueA < valueB) {
+        return ascending ? -1 : 1;
+      }
+      if (valueA > valueB) {
+        return ascending ? 1 : -1;
+      }
+      return 0;
+    };
+    this.tasks.sort(compareFn);
   }
 }
