@@ -1,15 +1,23 @@
 <div class="dialog">
   <div class="dialog-content">
     <h2>Task</h2>
-    <form (submit)="submitForm($event)">
+    <form [formGroup]="taskForm" (ngSubmit)="submitForm()">
       <div>
         <label>Add Task</label>
-        <input type="text" name="task" [(ngModel)]="task" #taskInput="ngModel" required />
-        <div *ngIf="taskInput.invalid && taskInput.touched">
-          <div *ngIf="taskInput.errors?.['required']" style="color: red">Task required!</div>
+        <input type="text" formControlName="task" />
+        <div *ngIf="taskForm.get('task')?.invalid && taskForm.get('task')?.invalid">
+          <div class ="validation" *ngIf="taskForm.get('task')?.hasError('required')">
+            Task required!
+          </div>
+          <div class = "validation" *ngIf="taskForm.get('task')?.hasError('minlength')">
+            Task min length 5 letters!
+          </div>
+          <div class="validation" *ngIf="taskForm.get('task')?.hasError('maxlength')">
+            Task max length 40 letters!
+          </div>
         </div>
       </div>
-      <button type="submit" [disabled]="taskInput.invalid">Save</button>
+      <button type="submit" [disabled]="taskForm.invalid">Save</button>
       <button type="button" (click)="closeDialog()">Close</button>
     </form>
   </div>

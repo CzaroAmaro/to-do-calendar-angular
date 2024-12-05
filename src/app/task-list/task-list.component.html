@@ -4,5 +4,6 @@
   <div *ngFor="let task of tasks; let i = index">
     <p>{{ task.date | date:'shortDate' }}: {{ task.task }}</p>
     <button (click)="removeTask(i)">Usuń</button>
+    <img err src="">
   </div>
 </div>

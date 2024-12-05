@@ -35,10 +35,11 @@
   font-size: 16px;
 }
 
-.dialog-content div[style="color: red"] {
+.validation {
   font-size: 14px;
   margin-top: -5px;
   margin-bottom: 10px;
+  color:red;
 }
 
 .dialog-content button {

@@ -35,16 +35,18 @@ export class CalendarComponent {
       current = current.plus({ days: 1 });
     }
   }
-
+  //Zmiana koloru dni nastepnego miesiaca
   isCurrentMonth(date: DateTime): boolean {
     return date.hasSame(this.firstDayOfMonth, 'month');
   }
 
+  //Poprzedni miesiac
   previousMonth(){
     this.firstDayOfMonth = this.firstDayOfMonth.minus({ months: 1 });
     this.generateDaysOfMonth();
   }
 
+  //Nastepny miesiac
   nextMonth(){
     this.firstDayOfMonth = this.firstDayOfMonth.plus({ months: 1 });
     this.generateDaysOfMonth();

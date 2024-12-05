@@ -22,18 +22,20 @@
 }
 
 .previous-btn, .next-btn{
-  background-color: #4397cd;
+  background-color: #1d4580;
   border-radius: 4px;
   border: none;
   font-size: 14px;
+  font-weight: 700;
   padding: 12px;
+  transition: all 0.3s ease-in-out;
 }
 
 .previous-btn:hover, .next-btn:hover {
+  transform: scale(0.9);
   background-color: #168acc;
   cursor: pointer;
 }
-
 
 .calendar-weeks-table {
   display: grid;
@@ -67,4 +69,14 @@
 }
 .calendar-table-cell.other-month {
   background-color: #939393;
+}
+.previous-btn{
+  border-bottom-left-radius: 100%;
+  border-top-left-radius:  100%;
+  width: 80px;
+}
+.next-btn{
+  border-bottom-right-radius: 50%;
+  border-top-right-radius:  50%;
+  width: 80px;
 }

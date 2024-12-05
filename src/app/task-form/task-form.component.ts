@@ -1,7 +1,7 @@
-import { Component, Inject } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import {CommonModule} from '@angular/common';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule, FormControl, FormGroup, Validators} from '@angular/forms';
 import {DateTime} from 'luxon';
 
 @Component({
@@ -9,11 +9,13 @@ import {DateTime} from 'luxon';
   templateUrl: './task-form.component.html',
   styleUrls: ['./task-form.component.css'],
   standalone: true,
-  imports: [CommonModule, FormsModule]
+  imports: [CommonModule, FormsModule, ReactiveFormsModule]
 })
-export class TaskFormComponent {
+export class TaskFormComponent implements OnInit{
   selectedDate: Date; // Typ Date
-  task: string = '';
+  taskForm: FormGroup = new FormGroup({
+    task: new FormControl('', Validators.required),
+  });
 
   constructor(
     public dialogRef: MatDialogRef<TaskFormComponent>,
@@ -26,10 +28,16 @@ export class TaskFormComponent {
     }
   }
 
-  submitForm(event: Event) {
-    event.preventDefault();
-    console.log('Zapisano zadanie na dzień:', this.selectedDate);
-    this.dialogRef.close({ date: this.selectedDate, task: this.task });
+  ngOnInit() {
+    this.taskForm = new FormGroup({
+      task: new FormControl('', [Validators.required, Validators.minLength(5), Validators.maxLength(40)]),
+    })
+  }
+
+  submitForm() {
+    if(this.taskForm.valid) {
+      this.dialogRef.close({date: this.selectedDate, task: this.taskForm.value.task});
+    }
   }
 
   closeDialog() {
