@@ -1,33 +1,19 @@
-.task-list {
-  margin-left: 100px;
-  padding: 10px;
-  max-width: 600px;
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
+#add-btn{
+  background-color: #1f72d1;
+  color: #fdfdfd;
   border-radius: 8px;
-}
-
-h2{
-  font-size: 18px;
-}
-
-.task-list div {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  cursor: pointer;
+  border: none;
+  font-size: 17px;
   padding: 10px;
-  margin-bottom: 5px;
-  border-bottom: 1px solid #eee;
+  transition: background-color 0.3s
 }
 
-.task-list p {
-  margin: 0;
-  font-size: 16px;
-  color: #333;
+#add-btn:hover{
+  background-color: #005cbf;
 }
 
-/* Style for the "Remove" button */
-.task-list button {
+#delete-btn {
   padding: 5px 10px;
   margin-left: 5px;
   font-size: 14px;
@@ -38,7 +24,6 @@ h2{
   cursor: pointer;
 }
 
-/* Hover effect for the "Remove" button */
-.task-list button:hover {
+#delete-btn:hover {
   background-color: #c82333;
 }
