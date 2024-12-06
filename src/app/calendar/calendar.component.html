@@ -13,6 +13,7 @@
       <div id="days"
            *ngFor="let day of daysOfMonth"
            [class.selected]="selectedDate?.hasSame(day, 'day')"
+           [class.today]="day.hasSame(today,'day')"
            (click)="selectDay(day)"
             [ngClass]="{'other-month': !currentMonth(day)}">
         {{ day.day }}

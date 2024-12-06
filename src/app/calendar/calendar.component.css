@@ -78,6 +78,9 @@
 #days.other-month{
   background-color: #bfbfbf;
 }
+#days.today{
+  background-color: #ea7d2d;
+}
 
 .task-list {
   margin-top: 16px;

@@ -46,18 +46,18 @@ export class CalendarComponent {
   addTaskToSelectedDay(task: { date: Date, task: string }) {
     if (this.selectedDate) {
       this.tasks.push({
-        date: this.selectedDate.toJSDate(),  // Konwertujemy DateTime na Date
+        date: this.selectedDate.toJSDate(),
         task: task.task
       });
     }
   }
 
   // Otwarcie formularza do dodania zadania
-  openDialog(): void {
+  openDialog() {
     if (this.selectedDate) {
       const dialogRef = this.dialog.open(TaskFormComponent, {
         data: {
-          selectedDate: this.selectedDate.toJSDate()  // Konwertujemy DateTime na Date
+          selectedDate: this.selectedDate.toJSDate()
         }
       });
 
@@ -74,13 +74,13 @@ export class CalendarComponent {
     return date.hasSame(this.firstDayOfMonth, 'month');
   }
 
-  // Przechodzenie do poprzedniego miesiąca
+  // Przycisk do cofniecia kalendarza
   previousMonth() {
     this.firstDayOfMonth = this.firstDayOfMonth.minus({ months: 1 });
     this.generateDaysOfMonth();
   }
 
-  // Przechodzenie do następnego miesiąca
+  // Przycisk do przejscia do nastepnego miesiaca
   nextMonth() {
     this.firstDayOfMonth = this.firstDayOfMonth.plus({ months: 1 });
     this.generateDaysOfMonth();
