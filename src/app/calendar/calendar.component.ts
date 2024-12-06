@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import { DateTime } from 'luxon';
 import { MatDialog } from '@angular/material/dialog';
 import { TaskFormComponent } from '../task-form/task-form.component';
@@ -88,5 +88,9 @@ export class CalendarComponent {
 
   currentMonth(date: DateTime):boolean {
     return date.hasSame(this.firstDayOfMonth, 'month');
+  }
+
+  hasTasks(day: DateTime): boolean {
+    return this.tasks.some(task => DateTime.fromJSDate(task.date).hasSame(day,'day'));
   }
 }

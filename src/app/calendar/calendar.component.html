@@ -17,6 +17,7 @@
            (click)="selectDay(day)"
             [ngClass]="{'other-month': !currentMonth(day)}">
         {{ day.day }}
+        <div id="tasks-day" *ngIf="hasTasks(day)"></div>
       </div>
     </div>
   </div>
