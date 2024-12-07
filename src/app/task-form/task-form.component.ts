@@ -3,13 +3,14 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import {CommonModule} from '@angular/common';
 import {FormsModule, ReactiveFormsModule, FormControl, FormGroup, Validators} from '@angular/forms';
 import {DateTime} from 'luxon';
+import { ForbiddenWordValidatorDirective } from './forbidden-word-validator.directive';
 
 @Component({
   selector: 'app-task-form',
   templateUrl: './task-form.component.html',
   styleUrls: ['./task-form.component.css'],
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule]
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, ForbiddenWordValidatorDirective]
 })
 export class TaskFormComponent implements OnInit{
   selectedDate: Date; // Typ Date
